@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C237AAE1F65082500DE799E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AAD1F65082500DE799E /* main.m */; };
+		8C237AB11F65082500DE799E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AB01F65082500DE799E /* AppDelegate.m */; };
+		8C237AB41F65082500DE799E /* SelectPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AB31F65082500DE799E /* SelectPlacesViewController.m */; };
+		8C237AB71F65082500DE799E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C237AB51F65082500DE799E /* Main.storyboard */; };
+		8C237ABA1F65082500DE799E /* eMetroBooking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AB81F65082500DE799E /* eMetroBooking.xcdatamodeld */; };
+		8C237ABC1F65082500DE799E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C237ABB1F65082500DE799E /* Assets.xcassets */; };
+		8C237ABF1F65082500DE799E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C237ABD1F65082500DE799E /* LaunchScreen.storyboard */; };
+		8C237ACA1F650C9B00DE799E /* TicketDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AC91F650C9B00DE799E /* TicketDetailsViewController.m */; };
+		8C237ACD1F650CAE00DE799E /* HistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237ACC1F650CAE00DE799E /* HistoryListViewController.m */; };
+		8C237AD41F653A7700DE799E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C237AD31F653A7700DE799E /* MapKit.framework */; };
+		8CA0321A1F6557A400B754FD /* TicketDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA032181F6557A400B754FD /* TicketDetails.m */; };
+		8CA0321E1F65762000B754FD /* HistoryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA0321C1F65762000B754FD /* HistoryListTableViewCell.m */; };
+		8CA0321F1F65762000B754FD /* HistoryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0321D1F65762000B754FD /* HistoryListTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8C237AA91F65082500DE799E /* eMetroBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eMetroBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C237AAD1F65082500DE799E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8C237AAF1F65082500DE799E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8C237AB01F65082500DE799E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8C237AB21F65082500DE799E /* SelectPlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectPlacesViewController.h; sourceTree = "<group>"; };
+		8C237AB31F65082500DE799E /* SelectPlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectPlacesViewController.m; sourceTree = "<group>"; };
+		8C237AB61F65082500DE799E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C237AB91F65082500DE799E /* eMetroBooking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eMetroBooking.xcdatamodel; sourceTree = "<group>"; };
+		8C237ABB1F65082500DE799E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8C237ABE1F65082500DE799E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C237AC01F65082500DE799E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C237AC61F65084700DE799E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8C237AC71F65085A00DE799E /* eMetroBooking.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eMetroBooking.pch; sourceTree = "<group>"; };
+		8C237AC81F650C9B00DE799E /* TicketDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketDetailsViewController.h; sourceTree = "<group>"; };
+		8C237AC91F650C9B00DE799E /* TicketDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketDetailsViewController.m; sourceTree = "<group>"; };
+		8C237ACB1F650CAE00DE799E /* HistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListViewController.h; sourceTree = "<group>"; };
+		8C237ACC1F650CAE00DE799E /* HistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListViewController.m; sourceTree = "<group>"; };
+		8C237AD31F653A7700DE799E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8CA032171F6557A400B754FD /* TicketDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketDetails.h; sourceTree = "<group>"; };
+		8CA032181F6557A400B754FD /* TicketDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketDetails.m; sourceTree = "<group>"; };
+		8CA0321B1F65762000B754FD /* HistoryListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListTableViewCell.h; sourceTree = "<group>"; };
+		8CA0321C1F65762000B754FD /* HistoryListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListTableViewCell.m; sourceTree = "<group>"; };
+		8CA0321D1F65762000B754FD /* HistoryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryListTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C237AA61F65082500DE799E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C237AD41F653A7700DE799E /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C237AA01F65082500DE799E = {
+			isa = PBXGroup;
+			children = (
+				8C237AAB1F65082500DE799E /* eMetroBooking */,
+				8C237AAA1F65082500DE799E /* Products */,
+				8C237AD21F653A7700DE799E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8C237AAA1F65082500DE799E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C237AA91F65082500DE799E /* eMetroBooking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C237AAB1F65082500DE799E /* eMetroBooking */ = {
+			isa = PBXGroup;
+			children = (
+				8C237AC61F65084700DE799E /* Constants.h */,
+				8C237AAF1F65082500DE799E /* AppDelegate.h */,
+				8C237AB01F65082500DE799E /* AppDelegate.m */,
+				8C237AD11F650E1D00DE799E /* ViewControllers */,
+				8C237AB51F65082500DE799E /* Main.storyboard */,
+				8C237ABB1F65082500DE799E /* Assets.xcassets */,
+				8C237ABD1F65082500DE799E /* LaunchScreen.storyboard */,
+				8C237AC01F65082500DE799E /* Info.plist */,
+				8CA0320E1F65552400B754FD /* Core Data */,
+				8C237AAC1F65082500DE799E /* Supporting Files */,
+			);
+			path = eMetroBooking;
+			sourceTree = "<group>";
+		};
+		8C237AAC1F65082500DE799E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C237AC71F65085A00DE799E /* eMetroBooking.pch */,
+				8C237AAD1F65082500DE799E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C237AD11F650E1D00DE799E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C237AB21F65082500DE799E /* SelectPlacesViewController.h */,
+				8C237AB31F65082500DE799E /* SelectPlacesViewController.m */,
+				8C237AC81F650C9B00DE799E /* TicketDetailsViewController.h */,
+				8C237AC91F650C9B00DE799E /* TicketDetailsViewController.m */,
+				8C237ACB1F650CAE00DE799E /* HistoryListViewController.h */,
+				8C237ACC1F650CAE00DE799E /* HistoryListViewController.m */,
+				8CA0321B1F65762000B754FD /* HistoryListTableViewCell.h */,
+				8CA0321C1F65762000B754FD /* HistoryListTableViewCell.m */,
+				8CA0321D1F65762000B754FD /* HistoryListTableViewCell.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8C237AD21F653A7700DE799E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C237AD31F653A7700DE799E /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8CA0320E1F65552400B754FD /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				8C237AB81F65082500DE799E /* eMetroBooking.xcdatamodeld */,
+				8CA032171F6557A400B754FD /* TicketDetails.h */,
+				8CA032181F6557A400B754FD /* TicketDetails.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C237AA81F65082500DE799E /* eMetroBooking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C237AC31F65082500DE799E /* Build configuration list for PBXNativeTarget "eMetroBooking" */;
+			buildPhases = (
+				8C237AA51F65082500DE799E /* Sources */,
+				8C237AA61F65082500DE799E /* Frameworks */,
+				8C237AA71F65082500DE799E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eMetroBooking;
+			productName = eMetroBooking;
+			productReference = 8C237AA91F65082500DE799E /* eMetroBooking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C237AA11F65082500DE799E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Pushkraj;
+				TargetAttributes = {
+					8C237AA81F65082500DE799E = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = BE5NYQLWJV;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8C237AA41F65082500DE799E /* Build configuration list for PBXProject "eMetroBooking" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C237AA01F65082500DE799E;
+			productRefGroup = 8C237AAA1F65082500DE799E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C237AA81F65082500DE799E /* eMetroBooking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C237AA71F65082500DE799E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C237ABF1F65082500DE799E /* LaunchScreen.storyboard in Resources */,
+				8C237ABC1F65082500DE799E /* Assets.xcassets in Resources */,
+				8CA0321F1F65762000B754FD /* HistoryListTableViewCell.xib in Resources */,
+				8C237AB71F65082500DE799E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C237AA51F65082500DE799E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C237AB41F65082500DE799E /* SelectPlacesViewController.m in Sources */,
+				8C237AB11F65082500DE799E /* AppDelegate.m in Sources */,
+				8C237AAE1F65082500DE799E /* main.m in Sources */,
+				8C237ACA1F650C9B00DE799E /* TicketDetailsViewController.m in Sources */,
+				8C237ABA1F65082500DE799E /* eMetroBooking.xcdatamodeld in Sources */,
+				8CA0321E1F65762000B754FD /* HistoryListTableViewCell.m in Sources */,
+				8C237ACD1F650CAE00DE799E /* HistoryListViewController.m in Sources */,
+				8CA0321A1F6557A400B754FD /* TicketDetails.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8C237AB51F65082500DE799E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C237AB61F65082500DE799E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8C237ABD1F65082500DE799E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C237ABE1F65082500DE799E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C237AC11F65082500DE799E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C237AC21F65082500DE799E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C237AC41F65082500DE799E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BE5NYQLWJV;
+				GCC_PREFIX_HEADER = eMetroBooking/eMetroBooking.pch;
+				INFOPLIST_FILE = eMetroBooking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushkraj.eMetroBooking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8C237AC51F65082500DE799E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BE5NYQLWJV;
+				GCC_PREFIX_HEADER = eMetroBooking/eMetroBooking.pch;
+				INFOPLIST_FILE = eMetroBooking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushkraj.eMetroBooking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C237AA41F65082500DE799E /* Build configuration list for PBXProject "eMetroBooking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C237AC11F65082500DE799E /* Debug */,
+				8C237AC21F65082500DE799E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C237AC31F65082500DE799E /* Build configuration list for PBXNativeTarget "eMetroBooking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C237AC41F65082500DE799E /* Debug */,
+				8C237AC51F65082500DE799E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8C237AB81F65082500DE799E /* eMetroBooking.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8C237AB91F65082500DE799E /* eMetroBooking.xcdatamodel */,
+			);
+			currentVersion = 8C237AB91F65082500DE799E /* eMetroBooking.xcdatamodel */;
+			path = eMetroBooking.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8C237AA11F65082500DE799E /* Project object */;
+}
