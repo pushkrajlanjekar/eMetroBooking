@@ -37,6 +37,12 @@
     arrayPricesMatrix = [self getPriceMatrixArray];
 }
 
+
+/**
+ This method will create array of price matrix from one location to another.
+
+ @return Price matrix array will be returned for further use.
+ */
 -(NSArray *)getPriceMatrixArray {
     NSArray *arrayPrices = @[
                              @[@0,@2,@4,@9,@11,@16,@18,@11,@11,@13],
@@ -52,7 +58,7 @@
     return arrayPrices;
 }
 
-#pragma mark - UIPickerViewDelegate Methods
+#pragma mark - Picker View Methods
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
@@ -85,18 +91,24 @@
 }
 
 #pragma mark - Button Tap Actions
+// This will be called when you tap on Select Source Location Button and it will open picker view with options of all available locations.
 - (IBAction)buttonSourceTapped:(id)sender {
     pickerViewPlacesList.hidden = NO;
     isSource = true;
     sourceLocation = @"";
 }
 
+// This will be called when you tap on Select Destination Location Button and it will open picker view with options of all available locations.
 - (IBAction)buttonDestinationTapped:(id)sender {
     pickerViewPlacesList.hidden = NO;
     isSource = false;
     destinationLocation = @"";
 }
 
+/* This will be called when you tap on Book Ticket Button.
+   First it will validate your form and then it will book your ticket. 
+   After booking it will add entry to database so that you can view all tickets under history section.
+ */
 - (IBAction)buttonBookTicketTapped:(id)sender {
     UIAlertView *alertFailure = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:BUTTON_OK, nil];
     
@@ -137,12 +149,19 @@
     }
 }
 
+// This will be called when you tap on History Button and it will navigate you to History screen where you can see list of all tickets.
 - (IBAction)buttonHistoryTapped:(id)sender {
     HistoryListViewController *historyListVC = [STORY_BOARD instantiateViewControllerWithIdentifier:ID_HISTORY_LIST_VC];
     [self.navigationController pushViewController:historyListVC animated:YES];
 }
 
 #pragma mark - Get Date
+
+/**
+ This method will be used to get current time and date to save in DB with ticket entry.
+
+ @return Dictionary will be returned with 2 keys date and time and its value.
+ */
 -(NSDictionary *)getCurrentDateAndTime {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE dd,MMM yyyy"];

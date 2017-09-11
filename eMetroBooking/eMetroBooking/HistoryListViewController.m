@@ -31,6 +31,11 @@
     }
 }
 
+/**
+ This method will give you list of all tickets present in database.
+
+ @return Array with all records of DB.
+ */
 -(NSArray *) getAllTickets {
     AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -40,6 +45,7 @@
     return results;
 }
 
+#pragma mark - Table View Delegate and Datasource Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
