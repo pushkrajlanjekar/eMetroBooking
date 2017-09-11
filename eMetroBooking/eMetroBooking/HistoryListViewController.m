@@ -9,6 +9,8 @@
 #import "HistoryListViewController.h"
 #import "HistoryListTableViewCell.h"
 
+#define ROW_HEIGHT 60
+
 @interface HistoryListViewController () {
     NSArray *arrayTicketsList;
 }
@@ -29,6 +31,11 @@
     }
 }
 
+/**
+ This method will give you list of all tickets present in database.
+
+ @return Array with all records of DB.
+ */
 -(NSArray *) getAllTickets {
     AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -38,6 +45,7 @@
     return results;
 }
 
+#pragma mark - Table View Delegate and Datasource Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -47,16 +55,17 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return ROW_HEIGHT;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
+    static NSString *reuseCellIdentifier = @"cell";
     HistoryListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"HistoryListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        [tableView registerNib:[UINib nibWithNibName:ID_HISTORY_LIST_CELL bundle:nil] forCellReuseIdentifier:reuseCellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:reuseCellIdentifier];
     }
     TicketDetails *ticketDetails = (TicketDetails *)[arrayTicketsList objectAtIndex:indexPath.row];
     cell.labelDetails.text = [NSString stringWithFormat:@"%@ to %@ at Rs. %@/-",ticketDetails.source, ticketDetails.destination, ticketDetails.price];

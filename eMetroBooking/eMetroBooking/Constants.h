@@ -10,14 +10,14 @@
 #define Constants_h
 
 #pragma mark - Locations List
-#define ARRAY_LOCATIONS @[@"Karol Bagh",@"Jhande Walan",@"R. K. Ashram",@"Rajiv Chowk",@"New Delhi",@"Patel Chowk",@"INA",@"Barakhamba",@"Mandi House",@"Okhla"];
-
+#define ARRAY_LOCATIONS @[@"Karol Bagh",@"Jhande Walan",@"R. K. Ashram",@"Rajiv Chowk",@"Barakhamba",@"Mandi House",@"Okhla",@"New Delhi",@"Patel Chowk",@"INA",];
 #pragma mark - Storyboard Indentifiers
 #define STORY_BOARD [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
 #define ID_SELECT_PLACES_VC @"SelectPlacesViewController"
 #define ID_TICKET_DETAILS_VC @"TicketDetailsViewController"
 #define ID_HISTORY_LIST_VC @"HistoryListViewController"
 #define ID_MAP_VC @"MapViewController"
+#define ID_HISTORY_LIST_CELL @"HistoryListTableViewCell"
 
 #pragma mark - Alert View Strings
 #define ALERT_TITLE @"Failed !!!"

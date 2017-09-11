@@ -13,6 +13,8 @@
     NSArray *arrayLocations;
     BOOL isSource;
     NSString *sourceLocation, *destinationLocation;
+    NSArray *arrayPricesMatrix;
+    NSUInteger sourceIndex, destinationIndex;
 }
 @end
 
@@ -31,9 +33,32 @@
     self.title = placesTitle;
     self.navigationItem.hidesBackButton = true;
     self.navigationController.navigationBarHidden = false;
+    
+    arrayPricesMatrix = [self getPriceMatrixArray];
 }
 
-#pragma mark UIPickerViewDelegate Methods
+
+/**
+ This method will create array of price matrix from one location to another.
+
+ @return Price matrix array will be returned for further use.
+ */
+-(NSArray *)getPriceMatrixArray {
+    NSArray *arrayPrices = @[
+                             @[@0,@2,@4,@9,@11,@16,@18,@11,@11,@13],
+                             @[@2,@0,@2,@7,@9,@14,@16,@9,@9,@11],
+                             @[@4,@2,@0,@5,@7,@12,@14,@7,@7,@9],
+                             @[@6,@4,@2,@0,@2,@7,@9,@2,@2,@4],
+                             @[@11,@9,@7,@5,@0,@5,@7,@7,@7,@9],
+                             @[@13,@11,@9,@7,@2,@0,@2,@9,@9,@11],
+                             @[@18,@16,@14,@12,@7,@5,@0,@14,@14,@16],
+                             @[@11,@9,@7,@5,@7,@12,@14,@0,@9,@11],
+                             @[@11,@9,@7,@5,@7,@12,@14,@7,@0,@12],
+                             @[@13,@11,@9,@7,@9,@14,@16,@9,@2,@0]];
+    return arrayPrices;
+}
+
+#pragma mark - Picker View Methods
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
@@ -55,27 +80,35 @@
     if (isSource) {
         sourceLocation = [arrayLocations objectAtIndex:row];
         buttonSource.titleLabel.text = sourceLocation;
+        sourceIndex = row;
     }
     else {
         destinationLocation = [arrayLocations objectAtIndex:row];
         buttonDestination.titleLabel.text = destinationLocation;
+        destinationIndex = row;
     }
     pickerViewPlacesList.hidden = YES;
 }
 
 #pragma mark - Button Tap Actions
+// This will be called when you tap on Select Source Location Button and it will open picker view with options of all available locations.
 - (IBAction)buttonSourceTapped:(id)sender {
     pickerViewPlacesList.hidden = NO;
     isSource = true;
     sourceLocation = @"";
 }
 
+// This will be called when you tap on Select Destination Location Button and it will open picker view with options of all available locations.
 - (IBAction)buttonDestinationTapped:(id)sender {
     pickerViewPlacesList.hidden = NO;
     isSource = false;
     destinationLocation = @"";
 }
 
+/* This will be called when you tap on Book Ticket Button.
+   First it will validate your form and then it will book your ticket. 
+   After booking it will add entry to database so that you can view all tickets under history section.
+ */
 - (IBAction)buttonBookTicketTapped:(id)sender {
     UIAlertView *alertFailure = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:BUTTON_OK, nil];
     
@@ -100,7 +133,7 @@
         [newManagedObject setValue:destinationLocation forKey:DB_DESTINATION];
         [newManagedObject setValue:[[self getCurrentDateAndTime] valueForKey:KEY_DATE] forKey:DB_DATE];
         [newManagedObject setValue:[[self getCurrentDateAndTime] valueForKey:KEY_TIME] forKey:DB_TIME];
-        [newManagedObject setValue:@"10" forKey:DB_PRICE];
+        [newManagedObject setValue:[NSString stringWithFormat:@"%@",[[arrayPricesMatrix objectAtIndex:sourceIndex] objectAtIndex:destinationIndex]] forKey:DB_PRICE];
         
         if(![context save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
@@ -110,18 +143,25 @@
             ticketDetailsVC.sourceLocation = sourceLocation;
             ticketDetailsVC.destinationLocation = destinationLocation;
             ticketDetailsVC.dateTime = [NSString stringWithFormat:@"%@ | %@",[[self getCurrentDateAndTime] valueForKey:KEY_DATE],[[self getCurrentDateAndTime] valueForKey:KEY_TIME]];
-            ticketDetailsVC.price = @"Rs. 10/-";
+            ticketDetailsVC.price = [NSString stringWithFormat:@"%@",[[arrayPricesMatrix objectAtIndex:sourceIndex] objectAtIndex:destinationIndex]];
             [self.navigationController pushViewController:ticketDetailsVC animated:YES];
         }
     }
 }
 
+// This will be called when you tap on History Button and it will navigate you to History screen where you can see list of all tickets.
 - (IBAction)buttonHistoryTapped:(id)sender {
     HistoryListViewController *historyListVC = [STORY_BOARD instantiateViewControllerWithIdentifier:ID_HISTORY_LIST_VC];
     [self.navigationController pushViewController:historyListVC animated:YES];
 }
 
 #pragma mark - Get Date
+
+/**
+ This method will be used to get current time and date to save in DB with ticket entry.
+
+ @return Dictionary will be returned with 2 keys date and time and its value.
+ */
 -(NSDictionary *)getCurrentDateAndTime {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE dd,MMM yyyy"];

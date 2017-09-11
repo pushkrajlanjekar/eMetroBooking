@@ -30,7 +30,7 @@
     labelFromLocation.text = sourceLocation;
     labelToLocation.text = destinationLocation;
     labelDateAndTime.text = dateTime;
-    labelPrice.text = price;
+    labelPrice.text = [NSString stringWithFormat:@"Rs. %@/-",price];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self getCoordinatesFromLocationName:sourceLocation];
@@ -39,6 +39,12 @@
 }
 
 #pragma mark - Get Lattitude and Longitude from Location name
+
+/**
+ This method will be called to get lattitude longitude of location name. It will get called twice as we have source and destination location.
+
+ @param locationName Location name will be parameter as we want lattitude longitude of same
+ */
 -(void) getCoordinatesFromLocationName:(NSString *)locationName {
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -53,10 +59,12 @@
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSError *e = nil;
         id resposeDictionary = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableLeaves error: &e];
-        double latitude = 0, longitude = 0;
+        float latitude = 0, longitude = 0;
         if([[resposeDictionary objectForKey:API_RESULTS]count] > 0) {
-            latitude = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LAT] floatValue];
-            longitude = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LONG] floatValue];
+            float latVal = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LAT] floatValue];
+            latitude = [[NSString stringWithFormat:@"%.6f",latVal] floatValue];
+            float longVal = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LONG] floatValue];
+            longitude = [[NSString stringWithFormat:@"%.6f",longVal] floatValue];;
         }
         if (count == 0) {
             sourceCoords = CLLocationCoordinate2DMake(latitude, longitude);
@@ -70,7 +78,14 @@
     [postDataTask resume];
 }
 
-#pragma mark - Create Route on Map
+#pragma mark - Create Route on 
+
+/**
+ This method will add annotation on map and will create two annotations once each for source and destination.
+
+ @param sourceCOORDS Source lattitude longitude
+ @param destinationsCOORDS Destination lattitude longitude
+ */
 -(void)showDirections:(CLLocationCoordinate2D) sourceCOORDS andDestinationCoords:(CLLocationCoordinate2D) destinationsCOORDS {
     CLLocationCoordinate2D scCoords = sourceCOORDS;
     
@@ -121,6 +136,12 @@
      }];
 }
 
+
+/**
+ This Method will show route on map between two locations.
+
+ @param response Response received from above method.
+ */
 -(void)showRoute:(MKDirectionsResponse *)response {
     for (MKRoute *route in response.routes) {
         [mapViewJourney addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
@@ -141,6 +162,7 @@
 }
 
 #pragma mark - Button Tap Actions
+// This will be called when you tap on Share Button and share activity controller will be opened. It will show all options installed on device.
 - (IBAction)buttonShareTapped:(id)sender {
     NSString *title =[NSString stringWithFormat:@"I travelled from %@ to %@ in just %@",sourceLocation,destinationLocation,price];
     NSArray *dataToShare = @[title];
@@ -149,6 +171,7 @@
     [self presentViewController:activityViewController animated:YES completion:^{}];
 }
 
+// This will be called when you tap on Home Button. It will take you to home screen.
 - (IBAction)buttonHomeTapped:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
