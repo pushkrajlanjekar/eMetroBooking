@@ -30,7 +30,7 @@
     labelFromLocation.text = sourceLocation;
     labelToLocation.text = destinationLocation;
     labelDateAndTime.text = dateTime;
-    labelPrice.text = price;
+    labelPrice.text = [NSString stringWithFormat:@"Rs. %@/-",price];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self getCoordinatesFromLocationName:sourceLocation];
@@ -53,10 +53,12 @@
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSError *e = nil;
         id resposeDictionary = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableLeaves error: &e];
-        double latitude = 0, longitude = 0;
+        float latitude = 0, longitude = 0;
         if([[resposeDictionary objectForKey:API_RESULTS]count] > 0) {
-            latitude = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LAT] floatValue];
-            longitude = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LONG] floatValue];
+            float latVal = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LAT] floatValue];
+            latitude = [[NSString stringWithFormat:@"%.6f",latVal] floatValue];
+            float longVal = [[[[[[resposeDictionary objectForKey:API_RESULTS] objectAtIndex:0] objectForKey:API_GEOMETRY] objectForKey:API_LOCATION] valueForKey:API_LONG] floatValue];
+            longitude = [[NSString stringWithFormat:@"%.6f",longVal] floatValue];;
         }
         if (count == 0) {
             sourceCoords = CLLocationCoordinate2DMake(latitude, longitude);

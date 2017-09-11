@@ -13,6 +13,8 @@
     NSArray *arrayLocations;
     BOOL isSource;
     NSString *sourceLocation, *destinationLocation;
+    NSArray *arrayPricesMatrix;
+    NSUInteger sourceIndex, destinationIndex;
 }
 @end
 
@@ -31,9 +33,26 @@
     self.title = placesTitle;
     self.navigationItem.hidesBackButton = true;
     self.navigationController.navigationBarHidden = false;
+    
+    arrayPricesMatrix = [self getPriceMatrixArray];
 }
 
-#pragma mark UIPickerViewDelegate Methods
+-(NSArray *)getPriceMatrixArray {
+    NSArray *arrayPrices = @[
+                             @[@0,@2,@4,@9,@11,@16,@18,@11,@11,@13],
+                             @[@2,@0,@2,@7,@9,@14,@16,@9,@9,@11],
+                             @[@4,@2,@0,@5,@7,@12,@14,@7,@7,@9],
+                             @[@6,@4,@2,@0,@2,@7,@9,@2,@2,@4],
+                             @[@11,@9,@7,@5,@0,@5,@7,@7,@7,@9],
+                             @[@13,@11,@9,@7,@2,@0,@2,@9,@9,@11],
+                             @[@18,@16,@14,@12,@7,@5,@0,@14,@14,@16],
+                             @[@11,@9,@7,@5,@7,@12,@14,@0,@9,@11],
+                             @[@11,@9,@7,@5,@7,@12,@14,@7,@0,@12],
+                             @[@13,@11,@9,@7,@9,@14,@16,@9,@2,@0]];
+    return arrayPrices;
+}
+
+#pragma mark - UIPickerViewDelegate Methods
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
@@ -55,10 +74,12 @@
     if (isSource) {
         sourceLocation = [arrayLocations objectAtIndex:row];
         buttonSource.titleLabel.text = sourceLocation;
+        sourceIndex = row;
     }
     else {
         destinationLocation = [arrayLocations objectAtIndex:row];
         buttonDestination.titleLabel.text = destinationLocation;
+        destinationIndex = row;
     }
     pickerViewPlacesList.hidden = YES;
 }
@@ -100,7 +121,7 @@
         [newManagedObject setValue:destinationLocation forKey:DB_DESTINATION];
         [newManagedObject setValue:[[self getCurrentDateAndTime] valueForKey:KEY_DATE] forKey:DB_DATE];
         [newManagedObject setValue:[[self getCurrentDateAndTime] valueForKey:KEY_TIME] forKey:DB_TIME];
-        [newManagedObject setValue:@"10" forKey:DB_PRICE];
+        [newManagedObject setValue:[NSString stringWithFormat:@"%@",[[arrayPricesMatrix objectAtIndex:sourceIndex] objectAtIndex:destinationIndex]] forKey:DB_PRICE];
         
         if(![context save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
@@ -110,7 +131,7 @@
             ticketDetailsVC.sourceLocation = sourceLocation;
             ticketDetailsVC.destinationLocation = destinationLocation;
             ticketDetailsVC.dateTime = [NSString stringWithFormat:@"%@ | %@",[[self getCurrentDateAndTime] valueForKey:KEY_DATE],[[self getCurrentDateAndTime] valueForKey:KEY_TIME]];
-            ticketDetailsVC.price = @"Rs. 10/-";
+            ticketDetailsVC.price = [NSString stringWithFormat:@"%@",[[arrayPricesMatrix objectAtIndex:sourceIndex] objectAtIndex:destinationIndex]];
             [self.navigationController pushViewController:ticketDetailsVC animated:YES];
         }
     }
