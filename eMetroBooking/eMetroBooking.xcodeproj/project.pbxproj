@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C1F77101F7018FF006B402E /* StationDirectionalGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F770F1F7018FF006B402E /* StationDirectionalGraph.m */; };
+		8C1F77131F70193B006B402E /* StationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F77121F70193B006B402E /* StationNode.m */; };
 		8C237AAE1F65082500DE799E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AAD1F65082500DE799E /* main.m */; };
 		8C237AB11F65082500DE799E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AB01F65082500DE799E /* AppDelegate.m */; };
 		8C237AB41F65082500DE799E /* SelectPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C237AB31F65082500DE799E /* SelectPlacesViewController.m */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C1F770E1F7018FF006B402E /* StationDirectionalGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationDirectionalGraph.h; sourceTree = "<group>"; };
+		8C1F770F1F7018FF006B402E /* StationDirectionalGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationDirectionalGraph.m; sourceTree = "<group>"; };
+		8C1F77111F70193B006B402E /* StationNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationNode.h; sourceTree = "<group>"; };
+		8C1F77121F70193B006B402E /* StationNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationNode.m; sourceTree = "<group>"; };
 		8C237AA91F65082500DE799E /* eMetroBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eMetroBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C237AAD1F65082500DE799E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C237AAF1F65082500DE799E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +89,10 @@
 				8C237AC61F65084700DE799E /* Constants.h */,
 				8C237AAF1F65082500DE799E /* AppDelegate.h */,
 				8C237AB01F65082500DE799E /* AppDelegate.m */,
+				8C1F770E1F7018FF006B402E /* StationDirectionalGraph.h */,
+				8C1F770F1F7018FF006B402E /* StationDirectionalGraph.m */,
+				8C1F77111F70193B006B402E /* StationNode.h */,
+				8C1F77121F70193B006B402E /* StationNode.m */,
 				8C237AD11F650E1D00DE799E /* ViewControllers */,
 				8C237AB51F65082500DE799E /* Main.storyboard */,
 				8C237ABB1F65082500DE799E /* Assets.xcassets */,
@@ -213,10 +223,12 @@
 				8C237AB41F65082500DE799E /* SelectPlacesViewController.m in Sources */,
 				8C237AB11F65082500DE799E /* AppDelegate.m in Sources */,
 				8C237AAE1F65082500DE799E /* main.m in Sources */,
+				8C1F77101F7018FF006B402E /* StationDirectionalGraph.m in Sources */,
 				8C237ACA1F650C9B00DE799E /* TicketDetailsViewController.m in Sources */,
 				8C237ABA1F65082500DE799E /* eMetroBooking.xcdatamodeld in Sources */,
 				8CA0321E1F65762000B754FD /* HistoryListTableViewCell.m in Sources */,
 				8C237ACD1F650CAE00DE799E /* HistoryListViewController.m in Sources */,
+				8C1F77131F70193B006B402E /* StationNode.m in Sources */,
 				8CA0321A1F6557A400B754FD /* TicketDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

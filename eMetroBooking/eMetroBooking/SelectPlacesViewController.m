@@ -15,6 +15,9 @@
     NSString *sourceLocation, *destinationLocation;
     NSArray *arrayPricesMatrix;
     NSUInteger sourceIndex, destinationIndex;
+    
+    StationNode *startStation, *endStation;
+    StationDirectionalGraph *stationDirectionalGraph;
 }
 @end
 
@@ -37,6 +40,46 @@
     arrayPricesMatrix = [self getPriceMatrixArray];
 }
 
+-(void) generateGraph {
+    StationNode *stA = [[StationNode alloc] initWithStationId:1 andStationValue:@"A"];
+    StationNode *stB = [[StationNode alloc] initWithStationId:2 andStationValue:@"B"];
+    StationNode *stC = [[StationNode alloc] initWithStationId:3 andStationValue:@"C"];
+    StationNode *stD = [[StationNode alloc] initWithStationId:4 andStationValue:@"D"];
+    StationNode *stE = [[StationNode alloc] initWithStationId:5 andStationValue:@"E"];
+    StationNode *stF = [[StationNode alloc] initWithStationId:6 andStationValue:@"F"];
+    StationNode *stG = [[StationNode alloc] initWithStationId:7 andStationValue:@"G"];
+    StationNode *stH = [[StationNode alloc] initWithStationId:8 andStationValue:@"H"];
+    StationNode *stI = [[StationNode alloc] initWithStationId:9 andStationValue:@"I"];
+    StationNode *stJ = [[StationNode alloc] initWithStationId:10 andStationValue:@"I"];
+    
+    [stA addAdjacentStation:stB];
+    
+    [stB addAdjacentStation:stA];
+    [stB addAdjacentStation:stC];
+    
+    [stC addAdjacentStation:stB];
+    [stC addAdjacentStation:stD];
+    
+    [stD addAdjacentStation:stC];
+    [stD addAdjacentStation:stH];
+    [stD addAdjacentStation:stE];
+    [stD addAdjacentStation:stI];
+    
+    [stH addAdjacentStation:stD];
+    
+    [stE addAdjacentStation:stD];
+    [stE addAdjacentStation:stF];
+    
+    [stI addAdjacentStation:stD];
+    [stI addAdjacentStation:stJ];
+    
+    [stJ addAdjacentStation:stI];
+    
+    [stF addAdjacentStation:stE];
+    [stF addAdjacentStation:stG];
+    
+    [stG addAdjacentStation:stF];
+}
 
 /**
  This method will create array of price matrix from one location to another.

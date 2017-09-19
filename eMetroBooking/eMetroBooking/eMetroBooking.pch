@@ -13,5 +13,7 @@
 #import "TicketDetails.h"
 #import "AppDelegate.h"
 #import "TicketDetailsViewController.h"
+#import "StationNode.h"
+#import "StationDirectionalGraph.h"
 
 #endif
